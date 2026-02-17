@@ -39,11 +39,11 @@ export function clearGallery() {
 }
 
 export function showLoader() {
-    loader.classList.add('is-hidden')
+    loader.classList.remove('is-hidden')
     console.log('Завантаження')
 }
 
 export function hideLoader() { 
-    loader.classList.remove('is-hidden')
+    loader.classList.add('is-hidden')
     console.log('Закінчення завантаження')
 }
