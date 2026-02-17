@@ -25,11 +25,11 @@ export function clearGallery() {
 }
 
 export function showLoader() {
-    gallery.classList.add('loading')
+    gallery.classList.add('loader')
     console.log('Завантаження')
 }
 
 export function hideLoader() { 
-    gallery.classList.remove('loading')
+    gallery.classList.remove('loader')
     console.log('Закінчення завантаження')
 }
