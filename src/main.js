@@ -24,7 +24,7 @@ form.addEventListener('submit', async (event) => {
     page = 1;
     clearGallery();
     hideLoadButton();
-    showLoadButton();
+    showLoader();
 
     try {
       const data = await getImagesByQuery(query, page);
