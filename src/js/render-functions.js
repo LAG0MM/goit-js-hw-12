@@ -3,17 +3,19 @@ import "simplelightbox/dist/simple-lightbox.min.css";
 
 const gallery = document.querySelector('.gallery');
 const loader = document.querySelector('.loader');
+const loadBtn = document.querySelector('.btn')
+
 
 const lightbox = new SimpleLightbox('.gallery a', {
-    
   nav: true,       
   close: true,     
   captions: true,
   captionsData: 'alt', 
   captionDelay: 250  
-});
+})
 
-export  function createGallery(images) { 
+
+export async function createGallery(images) { 
      const markup = images
      .map(({ comments, downloads, likes, views, tags, webformatURL, largeImageURL }) => `
      <div class="gallery__card">
@@ -28,22 +30,34 @@ export  function createGallery(images) {
         </div>
       </div>
      `).join('');
-     gallery.insertAdjacentHTML('beforeend', markup)
 
+
+     gallery.insertAdjacentHTML('beforeend', markup)
       lightbox.refresh();
     };
+
 
 export function clearGallery() {
     gallery.innerHTML = '';
     console.log('Галерею очищенно')
 }
 
+
 export function showLoader() {
-    loader.classList.remove('is-hidden')
+    loader.classList.add('is-open')
     console.log('Завантаження')
 }
 
+
 export function hideLoader() { 
-    loader.classList.add('is-hidden')
+    loader.classList.remove('is-open')
     console.log('Закінчення завантаження')
+}
+
+export function showLoadButton() { 
+    loadBtn.classList.add('is-open');
+}
+
+export function hideLoadButton() { 
+    loadBtn.classList.remove('is-open');
 }
